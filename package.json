@@ -9,12 +9,13 @@
     "start": "node index.js"
   },
   "engines": {
-    "node":"10.15.1"
+    "node": "10.15.1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "botgram": "^2.2.0"
+    "botgram": "^2.2.0",
+    "node-telegram-bot-api": "^0.40.0"
   }
 }
