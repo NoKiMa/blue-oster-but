@@ -1,9 +1,9 @@
-// const botgram = require("botgram")
-const TelegramBot = require('node-telegram-bot-api');
+const botgram = require("botgram")
+// const TelegramBot = require('node-telegram-bot-api');
 const motivation = require('./motivation');
 const TOKEN = "1193533462:AAEod-HUkaDeWfHg-FnVTclL1izlVInfv4o";
-// const bot = botgram(TOKEN)
-const bot = new TelegramBot(TOKEN, {polling: true});
+const bot = botgram(TOKEN)
+// const bot = new TelegramBot(TOKEN, {polling: true});
 
 const rendomazer = (max)=>{
     max = Math.floor(max);
@@ -32,62 +32,62 @@ const randomLink = (category)=>{
     }
 }
 
-// bot.command("grust", function (msg, reply, next) {
-//     reply.text(`не грусти`);
-//     reply.text(randomLink(msg.command));
-//     console.log("test", randomLink(msg.command));
-// });
-
-bot.onText(/\/grust/, (msg, match)=>{
-  const chatId = msg.chat.id
-    const resp = randomLink(msg.command) ;
-    console.log("test", match);
-  bot.sendMessage(chatId, resp)
+bot.command("grust", function (msg, reply, next) {
+    reply.text(`не грусти`);
+    reply.text(randomLink(msg.command));
+    console.log("test", randomLink(msg.command));
 });
 
-// bot.command("podderjat", function (msg, reply, next) {
-//     reply.text(`Все будет зашибись`);
-//     reply.text(randomLink(msg.command));
-//     console.log("test ", randomLink(msg.command));
+// bot.onText(/\/grust/, (msg, match)=>{
+//   const chatId = msg.chat.id
+//     // const resp = randomLink(msg.) ;
+//     console.log("test", match);
+//   bot.sendMessage(chatId, resp)
 // });
+
+bot.command("podderjat", function (msg, reply, next) {
+    reply.text(`Все будет зашибись`);
+    reply.text(randomLink(msg.command));
+    console.log("test ", randomLink(msg.command));
+});
+
+bot.command("osudit", function (msg, reply, next) {
+    reply.text(`Я тоже порицаю эту дичь`);
+    reply.text(randomLink(msg.command));
+    console.log("test ", randomLink(msg.command));
+});
+
+bot.command("ocenit_fu", function (msg, reply, next) {
+    reply.text(`Согласен кал`);
+    reply.text(randomLink(msg.command));
+    console.log("test ", randomLink(msg.command));
+});
+
+bot.command("ocenit_ok", function (msg, reply, next) {
+    reply.text(`Годнота`);
+    reply.text(randomLink(msg.command));
+    console.log("test ", randomLink(msg.command));
+});
+
+bot.command("start", function (msg, reply, next) {
+    console.log("Received a /start command from", msg);
+    reply.text(` I want sex with you`)
+});
+
+bot.command("fart", function (msg, reply, next) {
+    console.log("Received a /fart command from", msg);
+    reply.text(`https://www.youtube.com/watch?v=qYODdZUahxA`)
+});
+
+// bot.command("ne_bzdy", function (msg, reply, next) {
+//     reply.text(`не бзди`)
+//     reply.text(`https://youtu.be/EzqsZA9h9gI`)
 //
-// bot.command("osudit", function (msg, reply, next) {
-//     reply.text(`Я тоже порицаю эту дичь`);
-//     reply.text(randomLink(msg.command));
-//     console.log("test ", randomLink(msg.command));
 // });
-//
-// bot.command("ocenit_fu", function (msg, reply, next) {
-//     reply.text(`Согласен кал`);
-//     reply.text(randomLink(msg.command));
-//     console.log("test ", randomLink(msg.command));
-// });
-//
-// bot.command("ocenit_ok", function (msg, reply, next) {
-//     reply.text(`Годнота`);
-//     reply.text(randomLink(msg.command));
-//     console.log("test ", randomLink(msg.command));
-// });
-//
-// bot.command("start", function (msg, reply, next) {
-//     console.log("Received a /start command from", msg);
-//     reply.text(` I want sex with you`)
-// });
-//
-// bot.command("fart", function (msg, reply, next) {
-//     console.log("Received a /fart command from", msg);
-//     reply.text(`https://www.youtube.com/watch?v=qYODdZUahxA`)
-// });
-//
-// // bot.command("ne_bzdy", function (msg, reply, next) {
-// //     reply.text(`не бзди`)
-// //     reply.text(`https://youtu.be/EzqsZA9h9gI`)
-// //
-// // });
-// bot.text(function (msg, reply, next) {
-//     console.log("Received a text message  :", msg.text);
-//     reply.text(`"${msg.text}" - От этого сообщения у меня встал`)
-// });
-//
-// bot.command((msg, reply) =>
-//     reply.text(`Invalid command.`))
+bot.text(function (msg, reply, next) {
+    console.log("Received a text message  :", msg.text);
+    reply.text(`"${msg.text}" - От этого сообщения у меня встал`)
+});
+
+bot.command((msg, reply) =>
+    reply.text(`Invalid command.`))
